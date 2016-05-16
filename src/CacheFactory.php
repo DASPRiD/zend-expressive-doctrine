@@ -39,6 +39,10 @@ class CacheFactory extends AbstractFactory
         if (!array_key_exists('class', $config)) {
             throw new OutOfBoundsException('Missing "class" config key');
         }
+        
+        if ($container->has($config['class'])) {
+            return $container->get($config['class']);
+        }
 
         $instance = null;
 
