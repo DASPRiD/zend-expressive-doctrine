@@ -40,7 +40,7 @@ return [
                 'wrapper_class' => null,
                 'pdo' => null,
                 'configuration' => 'orm_default', // Actually defaults to the connection config key, not hard-coded
-                'event_manager' => 'orm_default', // Actually defaults to the connection config key, not hard-coded
+                'eventmanager' => 'orm_default', // Actually defaults to the connection config key, not hard-coded
                 'params' => [],
                 'doctrine_mapping_types' => [],
                 'doctrine_commented_types' => [],
@@ -52,7 +52,7 @@ return [
                 'configuration' => 'orm_default', // Actually defaults to the entity manager config key, not hard-coded
             ],
         ],
-        'event_manager' => [
+        'eventmanager' => [
             'orm_default' => [
                 'subscribers' => [],
             ],

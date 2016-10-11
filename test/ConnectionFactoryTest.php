@@ -48,8 +48,8 @@ class ConnectionFactoryTest extends PHPUnit_Framework_TestCase
         $container->has('config')->willReturn(false);
         $container->has('doctrine.configuration.orm_default')->willReturn(true);
         $container->get('doctrine.configuration.orm_default')->willReturn($this->configuration);
-        $container->has('doctrine.event_manager.orm_default')->willReturn(true);
-        $container->get('doctrine.event_manager.orm_default')->willReturn($this->eventManger);
+        $container->has('doctrine.eventmanager.orm_default')->willReturn(true);
+        $container->get('doctrine.eventmanager.orm_default')->willReturn($this->eventManger);
 
         // This is actually quite tricky. We cannot really test the pure defaults, as that would require a MySQL
         // connection without a username and password. Since that can't work, we just verify that we get an exception
@@ -100,7 +100,7 @@ class ConnectionFactoryTest extends PHPUnit_Framework_TestCase
         $factory = new ConnectionFactory('orm_other');
         $connection = $factory($this->buildContainer('orm_other', 'orm_foo', 'orm_bar', [
             'configuration' => 'orm_foo',
-            'event_manager' => 'orm_bar',
+            'eventmanager' => 'orm_bar',
         ])->reveal());
 
         $this->assertSame($this->configuration, $connection->getConfiguration());
@@ -171,8 +171,8 @@ class ConnectionFactoryTest extends PHPUnit_Framework_TestCase
 
         $container->has(sprintf('doctrine.configuration.%s', $configurationKey))->willReturn(true);
         $container->get(sprintf('doctrine.configuration.%s', $configurationKey))->willReturn($this->configuration);
-        $container->has(sprintf('doctrine.event_manager.%s', $eventManagerKey))->willReturn(true);
-        $container->get(sprintf('doctrine.event_manager.%s', $eventManagerKey))->willReturn($this->eventManger);
+        $container->has(sprintf('doctrine.eventmanager.%s', $eventManagerKey))->willReturn(true);
+        $container->get(sprintf('doctrine.eventmanager.%s', $eventManagerKey))->willReturn($this->eventManger);
 
         return $container;
     }

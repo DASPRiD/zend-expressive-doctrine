@@ -41,8 +41,8 @@ class ConnectionFactory extends AbstractFactory
             ),
             $this->retrieveDependency(
                 $container,
-                $config['event_manager'],
-                'event_manager',
+                $config['eventmanager'],
+                'eventmanager',
                 EventManagerFactory::class
             )
         );
@@ -69,7 +69,7 @@ class ConnectionFactory extends AbstractFactory
             'wrapper_class' => null,
             'pdo' => null,
             'configuration' => $configKey,
-            'event_manager' => $configKey,
+            'eventmanager' => $configKey,
             'params' => [],
             'doctrine_mapping_types' => [],
             'doctrine_commented_types' => [],
