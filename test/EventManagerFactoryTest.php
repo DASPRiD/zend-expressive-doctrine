@@ -104,7 +104,7 @@ class EventManagerFactoryTest extends PHPUnit_Framework_TestCase
         $container->has('config')->willReturn(true);
         $container->get('config')->willReturn([
             'doctrine' => [
-                'event_manager' => [
+                'eventmanager' => [
                     'orm_default' => [
                         'subscribers' => [
                             $subscriber

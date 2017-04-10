@@ -54,7 +54,7 @@ factories when required. The following additional factories are available:
 - ```\ContainerInteropDoctrine\ConnectionFactory``` (doctrine.connection.*)
 - ```\ContainerInteropDoctrine\ConfigurationFactory``` (doctrine.configuration.*)
 - ```\ContainerInteropDoctrine\DriverFactory``` (doctrine.driver.*)
-- ```\ContainerInteropDoctrine\EventManagerFactory``` (doctrine.event_manager.*)
+- ```\ContainerInteropDoctrine\EventManagerFactory``` (doctrine.eventmanager.*)
 
 Each of those factories supports the same static behavior as the entity manager factory. For container specific
 configurations, there are a few examples provided in the example directory:
