@@ -5,11 +5,11 @@
     "homepage": "https://github.com/DASPRiD/container-interop-doctrine",
     "license" : "BSD-2-Clause",
     "require": {
-        "php": "^5.5|^7.0",
+        "php": "5.5.*|5.6.*|7.0.*|7.1.*",
         "doctrine/orm": "^2.5",
         "container-interop/container-interop": "^1.1",
         "doctrine/dbal": "^2.5",
-        "doctrine/common": "^2.6"
+        "doctrine/common": "^2.6|^2.7"
     },
     "autoload": {
         "psr-4": {
