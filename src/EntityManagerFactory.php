@@ -10,7 +10,7 @@
 namespace ContainerInteropDoctrine;
 
 use Doctrine\ORM\EntityManager;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * @method EntityManager __invoke(ContainerInterface $container)
