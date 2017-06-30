@@ -12,6 +12,7 @@ namespace ContainerInteropDoctrine;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\PDOMySql\Driver as PdoMysqlDriver;
 use Doctrine\DBAL\DriverManager;
+use Doctrine\DBAL\Types\Type;
 use Psr\Container\ContainerInterface;
 use Doctrine\DBAL\Types\Type;
 
