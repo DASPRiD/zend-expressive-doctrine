@@ -91,3 +91,51 @@ managers. Doctrine itself has no way to handle that itself, so a possible way wo
 with two unique ```cli-config.php``` files. You then invoke the doctrine CLI from each respective directory. Since the
 CLI is looking for the config file in the current working directory, it will then always use the one from the directory
 you are currently in.
+
+## Using the Doctrine Migrations
+
+If you would like to use doctrine migrations you have to define the migrations factory in your config:
+
+```php
+return [
+    'dependencies' => [
+        'factories' => [
+            'doctrine.entity_manager.orm_default' => \ContainerInteropDoctrine\EntityManagerFactory::class,
+            'doctrine.migrations.orm_default' => \ContainerInteropDoctrine\MigrationsConfigurationFactory::class,
+        ],
+    ],
+    'doctrine' => [
+        ...
+        'migrations_configuration' => [
+            'orm_default' => [
+                'directory' => '/path/to/migrations/classes/DoctrineMigrations',
+                'name'      => 'Doctrine Sandbox Migrations',
+                'namespace' => 'DoctrineMigrations',
+                'table'     => 'doctrine_migration_versions',
+            ],
+        ],
+        ...
+    ],
+];
+```
+
+and extend the ```cli-config.php```:
+
+```php
+<?php
+$container = require 'config/container.php';
+
+return new \Symfony\Component\Console\Helper\HelperSet([
+    'em' => new \Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper(
+        $container->get('doctrine.entity_manager.orm_default')
+    ),
+    'question' => new \Symfony\Component\Console\Helper\QuestionHelper(),
+    'configuration' => new ConfigurationHelper(
+        $container->get(EntityManagerInterface::class)->getConnection(),
+        $container->get('doctrine.migrations.orm_default')
+        )
+    
+]);
+```
+
+
