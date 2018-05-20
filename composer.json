@@ -11,9 +11,9 @@
 		"doctrine/dbal" : "^2.5",
 		"doctrine/common" : "^2.6"
 	},
-	"suggest": {
-        "doctrine/migrations" : "~1.7"
-    },
+	"suggest" : {
+		"doctrine/migrations" : "~1.7"
+	},
 	"autoload" : {
 		"psr-4" : {
 			"ContainerInteropDoctrine\\" : "src/"
